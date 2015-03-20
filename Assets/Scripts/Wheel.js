@@ -1,7 +1,6 @@
 ﻿#pragma strict
 
 @script RequireComponent(WheelCollider);
-
 private var wc: WheelCollider;
 
 function Awake() {
@@ -10,4 +9,8 @@ function Awake() {
 
 function Move(value: float) {
 	wc.motorTorque = value;
+}
+
+function Turn(value: float) {
+	wc.steerAngle = value;
 }
