@@ -2,11 +2,22 @@
 
 @script RequireComponent(Rigidbody);
 var wheel: Wheel[];
-var enginePower: float = -20f;
+var enginePower: float = 20f;
 var turnPower: float = 10f;
+var centerOfMass: Transform;
 
-function FixedUpdate () {
-	var torque = Input.GetAxis("Vertical") * enginePower;
+private var rbody: Rigidbody;
+
+function Awake() {
+	rbody = GetComponent(Rigidbody);
+}
+
+function Start() {
+	rbody.centerOfMass = centerOfMass.localPosition;
+}
+
+function FixedUpdate() {
+	var torque = Input.GetAxis("Vertical") * -enginePower;
 	var turnSpeed = Input.GetAxis("Horizontal") * turnPower;
 	
 	//front wheel drive
