@@ -3,7 +3,7 @@
 @script RequireComponent(Rigidbody);
 var wheel: Wheel[];
 var enginePower: float = 20f;
-var turnPower: float = 10f;
+var turnPower: float = 20f;
 var centerOfMass: Transform;
 
 private var rbody: Rigidbody;
